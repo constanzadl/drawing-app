@@ -7,8 +7,8 @@ $(function(){
             $("#circle").width(ui.value);
         }
     });
-    var canvas = document.getElementById("paint");
-    var context = canvas.getContext('2d');
+    //var canvas = document.getElementById("paint");
+    //var context = canvas.getContext('2d');
 
     /*
     //draw a line
@@ -46,7 +46,13 @@ $(function(){
     var mouse = { x: 0, y: 0 };
 
     //on load, load saved work from local Storage
-
+    if(localStorage.getItem("imgCanvas") != null){
+        var img = new Image();
+        img.onload = function(){
+            ctx.drawImage(img, 0, 0);
+        };
+        img.src = localStorage.getItem("imgCanvas");
+    }
     //set drawing parameters
     ctx.lineWidth = 3;
     ctx.lineJoin = "round";
@@ -78,8 +84,32 @@ $(function(){
     container.mouseup(function(){
         paint = false;
     });
+    container.mouseleave(function(){
+        paint = false;
+    });
+    //reset
+    $("#reset").click(function(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        paint_erase = "paint";
+        $("#erase").removeClass("eraseMode");
+    })
     //erase
     $("#erase").click(function(){
-        
+        if (paint_erase == "paint"){
+            paint_erase = "erase";
+            //change word to paint
+          $("#erase").text = ('Paint');
+        }else {
+            paint_erase = "paint";
+        }
+        $(this).toggleClass("eraseMode");
+    });
+    //save
+    $("#save").click(function(){
+        if(typeof(localStorage) != null){
+            localStorage.setItem("imgCanvas", canvas.toDataURL());
+        }else {
+            window.alert('Your browser does not support local storage');
+        }
     })
   });
