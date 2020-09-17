@@ -1,0 +1,84 @@
+body {
+    text-align: center;
+    background: url(images/bg.jpg) center center fixed;
+    background-size: cover;
+}
+#header {
+    background: linear-gradient(white, rgba(232,125, 247, 0.8));
+    /*-webkit-*/
+    /*-moz-*/
+    /*-o-*/
+    /*-ms-*/
+    height: 80px;
+    width: 500px;
+    margin: 10px auto;
+    font-size: 3em;
+    color: white;
+    line-height: 80px;
+}
+.inputContainer {
+    width: 200px;
+    margin: 0 auto;
+}
+.input {
+    height: 30px;
+    font-size: 1.3em;
+}
+#colorInput {
+    margin: 20px auto;
+}
+#slider {
+    margin: 40px auto 20px auto;
+}
+#circle {
+    height: 3px;
+    width: 3px;
+    border-radius: 100%;
+    background-color: black;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#thicknessInput {
+    position: relative;
+}
+#container {
+    width: 500px;
+    height: 400px;
+    border: 1px solid rgba(232, 125, 247, 0.9);
+    margin: 10px auto;
+}
+.inputContainer2 {
+    width: 399px;
+    margin: 20px auto;
+}
+.input2 {
+    width: 133px;
+    color: rgba(232, 125, 247, 1);
+    font-size: 2em;
+    float: left;
+}
+.button {
+    background: white;
+    height: 50px;
+    padding: 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px rgba(232,125, 247, 0.5);
+    position: relative;
+}
+.button:hover {
+    color: white;
+    background: linear-gradient(white, rgba(232,125, 247, 0.8));
+}
+.button:active {
+    top: 4px;
+    box-shadow: 0px 0px;
+}
+#paint {
+    background-color: white;
+    cursor: crosshair;
+}
