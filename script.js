@@ -1,12 +1,4 @@
 $(function(){
-    $("#slider").slider({
-        min: 3,
-        max: 30,
-        slide: function(event, ui){
-            $("#circle").height(ui.value);
-            $("#circle").width(ui.value);
-        }
-    });
     //var canvas = document.getElementById("paint");
     //var context = canvas.getContext('2d');
 
@@ -72,7 +64,7 @@ $(function(){
         mouse.y = e.pageY - this.offsetTop;
         if(paint){
             if (paint_erase == "paint"){
-                ctx.strokeStyle = "red";
+                ctx.strokeStyle = $("#paintColor").val();
             }
             else {
                 ctx.strokeStyle = "white";
@@ -111,5 +103,17 @@ $(function(){
         }else {
             window.alert('Your browser does not support local storage');
         }
-    })
+    });
+    $("#paintColor").change(function(){
+        $("#circle").css("background-color", $(this).val());
+    });
+    $("#slider").slider({
+        min: 3,
+        max: 30,
+        slide: function(event, ui){
+            $("#circle").height(ui.value);
+            $("#circle").width(ui.value);
+            ctx.lineWidth = ui.value;
+        }
+    });
   });
